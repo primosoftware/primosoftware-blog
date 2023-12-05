@@ -1,1 +1,225 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-04T19:43:03-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Hello world!</title><link href="/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2004-01-01T00:00:00-08:00</published><updated>2004-01-01T00:00:00-08:00</updated><id>/hello-world</id><content type="html" xml:base="/hello-world/"><![CDATA[<p><em>This post marks the beginning of this blog.</em></p>]]></content><author><name>Primo Software</name></author><summary type="html"><![CDATA[This post marks the beginning of this blog.]]></summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-04T22:23:07-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with C++ and Visual Studio Code on macOS</title><link href="/getting-started-cpp-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on macOS" /><published>2023-10-07T00:00:00-07:00</published><updated>2023-10-07T00:00:00-07:00</updated><id>/getting-started-cpp-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-macos.md">Setup C++ development environment on macOS</a></p>
+
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+
+<p>Download and install from <a href="https://code.visualstudio.com/download">Visual Studio Code</a> site.</p>
+
+<p>Open Visual Studio Code and press <code class="language-plaintext highlighter-rouge">Cmd + Shift + p</code>. Select <code class="language-plaintext highlighter-rouge">Shell Command: Install 'code' command in PATH</code>.</p>
+
+<h2 id="c-project">C++ Project</h2>
+
+<p>Create a directory called simple in <code class="language-plaintext highlighter-rouge">~/cpp/simple</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/cpp/simple
+</code></pre></div></div>
+
+<p>Open the directory in Visual Studio Code:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/cpp/simple
+code <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++ extension</a>.</p>
+
+<h2 id="project-files">Project Files</h2>
+
+<p>Add the following files:</p>
+
+<h3 id="srcmaincpp"><code class="language-plaintext highlighter-rouge">src/main.cpp</code></h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello CMake!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="cmakeliststxt"><code class="language-plaintext highlighter-rouge">CMakeLists.txt</code></h3>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span><span class="p">(</span>VERSION 3.20<span class="p">)</span>
+
+<span class="nb">project</span><span class="p">(</span>simple<span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span>simple src/main.cpp<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="buildsh"><code class="language-plaintext highlighter-rouge">build.sh</code></h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+
+<span class="nb">mkdir</span> <span class="nt">-p</span> ./build/debug
+<span class="nb">pushd</span> ./build/debug
+    cmake <span class="nt">-G</span> <span class="s1">'Ninja'</span> <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug  ../.. <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    ninja
+    <span class="nv">ret</span><span class="o">=</span><span class="nv">$?</span>
+<span class="nb">popd</span>  
+</code></pre></div></div>
+
+<h3 id="gitignore"><code class="language-plaintext highlighter-rouge">.gitignore</code></h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.cache/
+build/
+</code></pre></div></div>
+
+<h2 id="test-the-build">Test the build</h2>
+
+<p>Open Terminal in Visual Studio Code and test the build from command line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build.sh
+</code></pre></div></div>
+
+<h2 id="automate-the-build">Automate the build</h2>
+
+<p>Add the following Visual Studio Code Specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
+
+<h3 id="vscodetasksjson"><code class="language-plaintext highlighter-rouge">.vscode/tasks.json</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"osx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/build.sh"</span><span class="p">,</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Test the build by pressing <code class="language-plaintext highlighter-rouge">Cmd + B</code>. Visual Studio Code should execute the <code class="language-plaintext highlighter-rouge">build.sh</code> script automatically.</p>
+
+<h2 id="setup-debugging">Setup Debugging</h2>
+
+<p>Add the following Visual Studio Code Specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
+
+<h3 id="vscodelaunchjson"><code class="language-plaintext highlighter-rouge">.vscode/launch.json</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Launch (gdb)"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cppdbg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"osx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/build/debug/simple"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MIMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lldb"</span><span class="p">,</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">    
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="test-the-debugging">Test the debugging</h2>
+
+<p>Set a breakpoint on the first line of <code class="language-plaintext highlighter-rouge">int main()</code> inside <code class="language-plaintext highlighter-rouge">src/main.cpp</code>. Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="vscode" /><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup C++ development environment on macOS Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Cmd + Shift + p. Select Shell Command: Install 'code' command in PATH. C++ Project Create a directory called simple in ~/cpp/simple mkdir -p ~/cpp/simple Open the directory in Visual Studio Code: cd ~/cpp/simple code . Install the C/C++ extension. Project Files Add the following files: src/main.cpp #include &lt;iostream&gt; int main() { std::cout &lt;&lt; "Hello CMake!\n"; } CMakeLists.txt cmake_minimum_required(VERSION 3.20) project(simple) add_executable(simple src/main.cpp) build.sh #!/usr/bin/env bash mkdir -p ./build/debug pushd ./build/debug cmake -G 'Ninja' -DCMAKE_BUILD_TYPE=Debug ../.. &amp;&amp; \ ninja ret=$? popd .gitignore .cache/ build/ Test the build Open Terminal in Visual Studio Code and test the build from command line: ./build.sh Automate the build Add the following Visual Studio Code Specific files to the .vscode subdir: .vscode/tasks.json { "version": "2.0.0", "tasks": [ { "label": "Build", "type": "shell", "osx": { "command": "${workspaceFolder}/build.sh", }, "group": { "kind": "build", "isDefault": true } } ] } Test the build by pressing Cmd + B. Visual Studio Code should execute the build.sh script automatically. Setup Debugging Add the following Visual Studio Code Specific files to the .vscode subdir: .vscode/launch.json { "version": "0.2.0", "configurations": [ { "name": "Launch (gdb)", "type": "cppdbg", "request": "launch", "cwd": "${workspaceFolder}", "osx": { "program": "${workspaceFolder}/build/debug/simple", "MIMode": "lldb", }, } ] } Test the debugging Set a breakpoint on the first line of int main() inside src/main.cpp. Press F5 to launch the debugger. It should stop at the breakpoint.]]></summary></entry><entry><title type="html">Setup C++ development environment on macOS</title><link href="/setup-cpp-development-environment-macos/" rel="alternate" type="text/html" title="Setup C++ development environment on macOS" /><published>2023-09-12T00:00:00-07:00</published><updated>2023-09-12T00:00:00-07:00</updated><id>/setup-cpp-development-environment-macos</id><content type="html" xml:base="/setup-cpp-development-environment-macos/"><![CDATA[<blockquote>
+  <p>Scripts are <code class="language-plaintext highlighter-rouge">bash</code></p>
+</blockquote>
+
+<h2 id="misc">Misc</h2>
+
+<h3 id="finder">Finder</h3>
+
+<p>Show hidden files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
+</code></pre></div></div>
+
+<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
+
+<h2 id="homebrew">Homebrew</h2>
+
+<p>Install Homebrew:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/ruby <span class="nt">-e</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h2 id="bash-5">bash 5</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>bash
+</code></pre></div></div>
+
+<h2 id="git">Git</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git
+</code></pre></div></div>
+
+<h2 id="git-lfs">Git LFS</h2>
+
+<h3 id="install">Install</h3>
+
+<p>Install via Homebrew:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git-lfs
+git lfs <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>Close/Reopen Terminal and SourceTree GUI client after Git LFS installation.</p>
+
+<h3 id="configure-storage-directory-optional">Configure storage directory (optional)</h3>
+
+<p>By default the files will be stored under each repository, e.g. <code class="language-plaintext highlighter-rouge">avblocks-test\.git\lfs</code>. You can configure another location with <code class="language-plaintext highlighter-rouge">git config</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> lfs.storage ~/GitLargeFiles
+</code></pre></div></div>
+
+<h2 id="development-tools">Development Tools</h2>
+
+<h3 id="xcode">Xcode</h3>
+
+<p>Install Command Line Tools (CLT) for Xcode:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
+
+<p>If you get:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select: error: <span class="nb">command </span>line tools are already installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
+</code></pre></div></div>
+
+<p>Try this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softwareupdate <span class="nt">--all</span> <span class="nt">--install</span> <span class="nt">--force</span>
+</code></pre></div></div>
+
+<p>If that doesn’t show you any updates, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
+ <span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
+
+<h3 id="gmake">gmake</h3>
+
+<p>Install latest GNU Make via Homebrew:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>make
+</code></pre></div></div>
+
+<h3 id="cmake">CMake</h3>
+
+<p>Install via Homebrew:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>cmake
+</code></pre></div></div>
+
+<p>Verify:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h3 id="ninja">ninja</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>ninja
+</code></pre></div></div>
+
+<h3 id="yasm">yasm</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>yasm
+</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Scripts are bash Misc Finder Show hidden files: defaults write com.apple.finder AppleShowAllFiles YES Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch Homebrew Install Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" bash 5 brew install bash]]></summary></entry><entry><title type="html">Hello world!</title><link href="/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2004-01-03T00:00:00-08:00</published><updated>2004-01-03T00:00:00-08:00</updated><id>/hello-world</id><content type="html" xml:base="/hello-world/"><![CDATA[<p><em>This post marks the beginning of this blog.</em></p>]]></content><author><name>Primo Software</name></author><summary type="html"><![CDATA[This post marks the beginning of this blog.]]></summary></entry></feed>
