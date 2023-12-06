@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-05T17:52:07-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with C++ and Visual Studio Code on macOS</title><link href="/getting-started-cpp-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on macOS" /><published>2023-10-07T00:00:00-07:00</published><updated>2023-10-07T00:00:00-07:00</updated><id>/getting-started-cpp-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-macos">Setup C++ development environment on macOS</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-05T17:54:23-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with C++ and Visual Studio Code on macOS</title><link href="/getting-started-cpp-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on macOS" /><published>2023-10-07T00:00:00-07:00</published><updated>2023-10-07T00:00:00-07:00</updated><id>/getting-started-cpp-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-macos">Setup C++ development environment on macOS</a></p>
 
 <h2 id="visual-studio-code">Visual Studio Code</h2>
 
@@ -135,22 +135,6 @@ build/
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
 </code></pre></div></div>
 
-<p>If you get:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select: error: <span class="nb">command </span>line tools are already installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
-</code></pre></div></div>
-
-<p>Try this:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softwareupdate <span class="nt">--all</span> <span class="nt">--install</span> <span class="nt">--force</span>
-</code></pre></div></div>
-
-<p>If that doesn’t show you any updates, run:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
- <span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
-</code></pre></div></div>
-
 <h3 id="cmake">CMake</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>cmake
@@ -170,4 +154,22 @@ build/
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
 </code></pre></div></div>
 
-<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Homebrew Install Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" Development Tools Xcode Install Command Line Tools (CLT) for Xcode: xcode-select --install]]></summary></entry><entry><title type="html">Hello world!</title><link href="/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2004-01-03T00:00:00-08:00</published><updated>2004-01-03T00:00:00-08:00</updated><id>/hello-world</id><content type="html" xml:base="/hello-world/"><![CDATA[<p><em>This post marks the beginning of this blog.</em></p>]]></content><author><name>Primo Software</name></author><summary type="html"><![CDATA[This post marks the beginning of this blog.]]></summary></entry></feed>
+<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you get:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select: error: <span class="nb">command </span>line tools are already installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
+</code></pre></div></div>
+
+<p>Try this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softwareupdate <span class="nt">--all</span> <span class="nt">--install</span> <span class="nt">--force</span>
+</code></pre></div></div>
+
+<p>If that doesn’t show you any updates, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
+ <span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Homebrew Install Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" Development Tools Xcode Install Command Line Tools (CLT) for Xcode: xcode-select --install CMake brew install cmake ninja brew install ninja Misc Finder Show hidden files: defaults write com.apple.finder AppleShowAllFiles YES Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch Troubleshooting If you get: xcode-select: error: command line tools are already installed, use "Software Update" to install updates Try this: softwareupdate --all --install --force If that doesn’t show you any updates, run: sudo rm -rf /Library/Developer/CommandLineTools sudo xcode-select --install]]></summary></entry><entry><title type="html">Hello world!</title><link href="/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2004-01-03T00:00:00-08:00</published><updated>2004-01-03T00:00:00-08:00</updated><id>/hello-world</id><content type="html" xml:base="/hello-world/"><![CDATA[<p><em>This post marks the beginning of this blog.</em></p>]]></content><author><name>Primo Software</name></author><summary type="html"><![CDATA[This post marks the beginning of this blog.]]></summary></entry></feed>

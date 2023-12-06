@@ -63,22 +63,6 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
 </code></pre></div></div>
 
-<p>If you get:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select: error: <span class="nb">command </span>line tools are already installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
-</code></pre></div></div>
-
-<p>Try this:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softwareupdate <span class="nt">--all</span> <span class="nt">--install</span> <span class="nt">--force</span>
-</code></pre></div></div>
-
-<p>If that doesn’t show you any updates, run:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
- <span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
-</code></pre></div></div>
-
 <h3 id="cmake">CMake</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>cmake
@@ -99,6 +83,24 @@
 </code></pre></div></div>
 
 <p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you get:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select: error: <span class="nb">command </span>line tools are already installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
+</code></pre></div></div>
+
+<p>Try this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softwareupdate <span class="nt">--all</span> <span class="nt">--install</span> <span class="nt">--force</span>
+</code></pre></div></div>
+
+<p>If that doesn’t show you any updates, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
+ <span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
 
   
 </article>
