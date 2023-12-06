@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-05T08:14:37-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with C++ and Visual Studio Code on macOS</title><link href="/getting-started-cpp-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on macOS" /><published>2023-10-07T00:00:00-07:00</published><updated>2023-10-07T00:00:00-07:00</updated><id>/getting-started-cpp-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-macos">Setup C++ development environment on macOS</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-05T17:43:11-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with C++ and Visual Studio Code on macOS</title><link href="/getting-started-cpp-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on macOS" /><published>2023-10-07T00:00:00-07:00</published><updated>2023-10-07T00:00:00-07:00</updated><id>/getting-started-cpp-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-macos">Setup C++ development environment on macOS</a></p>
 
 <h2 id="visual-studio-code">Visual Studio Code</h2>
 
@@ -119,55 +119,11 @@ build/
 
 <h2 id="test-the-debugging">Test the debugging</h2>
 
-<p>Set a breakpoint on the first line of <code class="language-plaintext highlighter-rouge">int main()</code> inside <code class="language-plaintext highlighter-rouge">src/main.cpp</code>. Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="vscode" /><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup C++ development environment on macOS Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Cmd + Shift + p. Select Shell Command: Install 'code' command in PATH.]]></summary></entry><entry><title type="html">Setup C++ development environment on macOS</title><link href="/setup-cpp-development-environment-macos/" rel="alternate" type="text/html" title="Setup C++ development environment on macOS" /><published>2023-09-12T00:00:00-07:00</published><updated>2023-09-12T00:00:00-07:00</updated><id>/setup-cpp-development-environment-macos</id><content type="html" xml:base="/setup-cpp-development-environment-macos/"><![CDATA[<blockquote>
-  <p>Scripts are <code class="language-plaintext highlighter-rouge">bash</code></p>
-</blockquote>
-
-<h2 id="misc">Misc</h2>
-
-<h3 id="finder">Finder</h3>
-
-<p>Show hidden files:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
-</code></pre></div></div>
-
-<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
-
-<h2 id="homebrew">Homebrew</h2>
+<p>Set a breakpoint on the first line of <code class="language-plaintext highlighter-rouge">int main()</code> inside <code class="language-plaintext highlighter-rouge">src/main.cpp</code>. Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="vscode" /><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup C++ development environment on macOS Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Cmd + Shift + p. Select Shell Command: Install 'code' command in PATH.]]></summary></entry><entry><title type="html">Setup C++ development environment on macOS</title><link href="/setup-cpp-development-environment-macos/" rel="alternate" type="text/html" title="Setup C++ development environment on macOS" /><published>2023-09-12T00:00:00-07:00</published><updated>2023-09-12T00:00:00-07:00</updated><id>/setup-cpp-development-environment-macos</id><content type="html" xml:base="/setup-cpp-development-environment-macos/"><![CDATA[<h2 id="homebrew">Homebrew</h2>
 
 <p>Install Homebrew:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/ruby <span class="nt">-e</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="si">)</span><span class="s2">"</span>
-</code></pre></div></div>
-
-<h2 id="bash-5">bash 5</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>bash
-</code></pre></div></div>
-
-<h2 id="git">Git</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git
-</code></pre></div></div>
-
-<h2 id="git-lfs">Git LFS</h2>
-
-<h3 id="install">Install</h3>
-
-<p>Install via Homebrew:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git-lfs
-git lfs <span class="nb">install</span>
-</code></pre></div></div>
-
-<p>Close/Reopen Terminal and SourceTree GUI client after Git LFS installation.</p>
-
-<h3 id="configure-storage-directory-optional">Configure storage directory (optional)</h3>
-
-<p>By default the files will be stored under each repository, e.g. <code class="language-plaintext highlighter-rouge">avblocks-test\.git\lfs</code>. You can configure another location with <code class="language-plaintext highlighter-rouge">git config</code>.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> lfs.storage ~/GitLargeFiles
 </code></pre></div></div>
 
 <h2 id="development-tools">Development Tools</h2>
@@ -197,21 +153,12 @@ git lfs <span class="nb">install</span>
 
 <h3 id="gmake">gmake</h3>
 
-<p>Install latest GNU Make via Homebrew:</p>
-
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>make
 </code></pre></div></div>
 
 <h3 id="cmake">CMake</h3>
 
-<p>Install via Homebrew:</p>
-
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>cmake
-</code></pre></div></div>
-
-<p>Verify:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake <span class="nt">--version</span>
 </code></pre></div></div>
 
 <h3 id="ninja">ninja</h3>
@@ -219,7 +166,13 @@ git lfs <span class="nb">install</span>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>ninja
 </code></pre></div></div>
 
-<h3 id="yasm">yasm</h3>
+<h2 id="misc">Misc</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>yasm
-</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Scripts are bash Misc Finder Show hidden files: defaults write com.apple.finder AppleShowAllFiles YES Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch]]></summary></entry><entry><title type="html">Hello world!</title><link href="/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2004-01-03T00:00:00-08:00</published><updated>2004-01-03T00:00:00-08:00</updated><id>/hello-world</id><content type="html" xml:base="/hello-world/"><![CDATA[<p><em>This post marks the beginning of this blog.</em></p>]]></content><author><name>Primo Software</name></author><summary type="html"><![CDATA[This post marks the beginning of this blog.]]></summary></entry></feed>
+<h3 id="finder">Finder</h3>
+
+<p>Show hidden files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
+</code></pre></div></div>
+
+<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="macOS" /><summary type="html"><![CDATA[Homebrew Install Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" Development Tools Xcode Install Command Line Tools (CLT) for Xcode: xcode-select --install]]></summary></entry><entry><title type="html">Hello world!</title><link href="/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2004-01-03T00:00:00-08:00</published><updated>2004-01-03T00:00:00-08:00</updated><id>/hello-world</id><content type="html" xml:base="/hello-world/"><![CDATA[<p><em>This post marks the beginning of this blog.</em></p>]]></content><author><name>Primo Software</name></author><summary type="html"><![CDATA[This post marks the beginning of this blog.]]></summary></entry></feed>

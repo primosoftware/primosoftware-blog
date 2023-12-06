@@ -47,55 +47,11 @@
   <h1><a href="/setup-cpp-development-environment-macos/">Setup C++ development environment on macOS</a></h1><time datetime="2023-09-12T00:00:00-07:00">September 12, 2023</time>
 </header>
 
-  <blockquote>
-  <p>Scripts are <code class="language-plaintext highlighter-rouge">bash</code></p>
-</blockquote>
-
-<h2 id="misc">Misc</h2>
-
-<h3 id="finder">Finder</h3>
-
-<p>Show hidden files:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
-</code></pre></div></div>
-
-<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
-
-<h2 id="homebrew">Homebrew</h2>
+  <h2 id="homebrew">Homebrew</h2>
 
 <p>Install Homebrew:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/ruby <span class="nt">-e</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="si">)</span><span class="s2">"</span>
-</code></pre></div></div>
-
-<h2 id="bash-5">bash 5</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>bash
-</code></pre></div></div>
-
-<h2 id="git">Git</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git
-</code></pre></div></div>
-
-<h2 id="git-lfs">Git LFS</h2>
-
-<h3 id="install">Install</h3>
-
-<p>Install via Homebrew:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git-lfs
-git lfs <span class="nb">install</span>
-</code></pre></div></div>
-
-<p>Close/Reopen Terminal and SourceTree GUI client after Git LFS installation.</p>
-
-<h3 id="configure-storage-directory-optional">Configure storage directory (optional)</h3>
-
-<p>By default the files will be stored under each repository, e.g. <code class="language-plaintext highlighter-rouge">avblocks-test\.git\lfs</code>. You can configure another location with <code class="language-plaintext highlighter-rouge">git config</code>.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> lfs.storage ~/GitLargeFiles
 </code></pre></div></div>
 
 <h2 id="development-tools">Development Tools</h2>
@@ -125,21 +81,12 @@ git lfs <span class="nb">install</span>
 
 <h3 id="gmake">gmake</h3>
 
-<p>Install latest GNU Make via Homebrew:</p>
-
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>make
 </code></pre></div></div>
 
 <h3 id="cmake">CMake</h3>
 
-<p>Install via Homebrew:</p>
-
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>cmake
-</code></pre></div></div>
-
-<p>Verify:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake <span class="nt">--version</span>
 </code></pre></div></div>
 
 <h3 id="ninja">ninja</h3>
@@ -147,11 +94,16 @@ git lfs <span class="nb">install</span>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>ninja
 </code></pre></div></div>
 
-<h3 id="yasm">yasm</h3>
+<h2 id="misc">Misc</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>yasm
+<h3 id="finder">Finder</h3>
+
+<p>Show hidden files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
 </code></pre></div></div>
 
+<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
 
   
 </article>
