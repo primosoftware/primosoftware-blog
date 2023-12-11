@@ -63,6 +63,7 @@
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/net/simple
 </code></pre></div></div>
+
 <h2 id="net-project-files">.NET Project Files</h2>
 
 <p>Create the project files:</p>
@@ -71,8 +72,13 @@
 
 <span class="nb">cd</span> ~/net/simple
 
+<span class="c"># Switch to use .NET SDK 6.0, 7.0 or 8.0. We do 8.0 here but give the commands for other versions </span>
+<span class="c"># dotnet new globaljson --sdk-version 6.0.417 --roll-forward latestPatch</span>
+<span class="c"># dotnet new globaljson --sdk-version 7.0.404 --roll-forward latestPatch</span>
+dotnet new globaljson <span class="nt">--sdk-version</span> 8.0.100 <span class="nt">--roll-forward</span> latestPatch
+
 <span class="c"># create new console application and project</span>
-dotnet new console <span class="nt">--framework</span> net8.0
+dotnet new console <span class="nt">--framework</span> net6.0
 
 <span class="c"># create new solution and add the project to it</span>
 dotnet new sln
