@@ -21,6 +21,10 @@
 <lastmod>2023-11-15T00:00:00-08:00</lastmod>
 </url>
 <url>
+<loc>/setup-cpp-development-environment-ubuntu/</loc>
+<lastmod>2023-11-17T00:00:00-08:00</lastmod>
+</url>
+<url>
 <loc>/</loc>
 </url>
 <url>
@@ -37,5 +41,8 @@
 </url>
 <url>
 <loc>/tag/dotnet/</loc>
+</url>
+<url>
+<loc>/tag/ubuntu/</loc>
 </url>
 </urlset>

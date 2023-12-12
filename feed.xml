@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-12T10:40:03-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with .NET and Visual Studio Code on macOS</title><link href="/getting-started-net-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with .NET and Visual Studio Code on macOS" /><published>2023-11-15T00:00:00-08:00</published><updated>2023-11-15T00:00:00-08:00</updated><id>/getting-started-net-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-net-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-net-development-environment-macos">Setup .NET development environment on macOS</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-12T10:50:41-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Setup C++ development environment on Ubuntu</title><link href="/setup-cpp-development-environment-ubuntu/" rel="alternate" type="text/html" title="Setup C++ development environment on Ubuntu" /><published>2023-11-17T00:00:00-08:00</published><updated>2023-11-17T00:00:00-08:00</updated><id>/setup-cpp-development-environment-ubuntu</id><content type="html" xml:base="/setup-cpp-development-environment-ubuntu/"><![CDATA[<p>These steps were tested on Ubuntu 22.04.3 LTS. Scripts are <code class="language-plaintext highlighter-rouge">bash</code>.</p>
+
+<h3 id="compilers">Compilers</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+</code></pre></div></div>
+
+<h3 id="cmake">CMake</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>cmake
+</code></pre></div></div>
+
+<h3 id="ninja">ninja</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>ninja-build
+</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="c++" /><category term="ubuntu" /><summary type="html"><![CDATA[These steps were tested on Ubuntu 22.04.3 LTS. Scripts are bash. Compilers sudo apt install build-essential]]></summary></entry><entry><title type="html">Getting Started with .NET and Visual Studio Code on macOS</title><link href="/getting-started-net-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with .NET and Visual Studio Code on macOS" /><published>2023-11-15T00:00:00-08:00</published><updated>2023-11-15T00:00:00-08:00</updated><id>/getting-started-net-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-net-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-net-development-environment-macos">Setup .NET development environment on macOS</a></p>
 
 <h2 id="visual-studio-code">Visual Studio Code</h2>
 
