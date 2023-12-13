@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-12T18:33:22-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with .NET and Visual Studio Code on Ubuntu</title><link href="/getting-started-net-visual-studio-code-ubuntu/" rel="alternate" type="text/html" title="Getting Started with .NET and Visual Studio Code on Ubuntu" /><published>2023-11-20T00:00:00-08:00</published><updated>2023-11-20T00:00:00-08:00</updated><id>/getting-started-net-visual-studio-code-ubuntu</id><content type="html" xml:base="/getting-started-net-visual-studio-code-ubuntu/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-net-development-environment-ubuntu">Setup .NET development environment on Ubuntu</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-12T18:36:27-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with .NET and Visual Studio Code on Ubuntu</title><link href="/getting-started-net-visual-studio-code-ubuntu/" rel="alternate" type="text/html" title="Getting Started with .NET and Visual Studio Code on Ubuntu" /><published>2023-11-20T00:00:00-08:00</published><updated>2023-11-20T00:00:00-08:00</updated><id>/getting-started-net-visual-studio-code-ubuntu</id><content type="html" xml:base="/getting-started-net-visual-studio-code-ubuntu/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-net-development-environment-ubuntu">Setup .NET development environment on Ubuntu</a></p>
 
 <h2 id="visual-studio-code">Visual Studio Code</h2>
 
@@ -114,17 +114,17 @@ code <span class="nb">.</span>
 
 <h2 id="net-runtime">.NET Runtime</h2>
 
-<h3 id="net-runtime-60x-lts">.NET Runtime 6.0.x (LTS)</h3>
+<h3 id="net-runtime-60-lts">.NET Runtime 6.0 (LTS)</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotnet-install.sh --runtime dotnet --channel 6.0 --version latest
 </code></pre></div></div>
 
-<h3 id="net-runtime-70x">.NET Runtime 7.0.x</h3>
+<h3 id="net-runtime-70">.NET Runtime 7.0</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotnet-install.sh --runtime dotnet --channel 7.0 --version latest
 </code></pre></div></div>
 
-<h3 id="net-runtime-80x-lts">.NET Runtime 8.0.x (LTS)</h3>
+<h3 id="net-runtime-80-lts">.NET Runtime 8.0 (LTS)</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotnet-install.sh --runtime dotnet --channel 8.0 --version latest
 </code></pre></div></div>
@@ -415,21 +415,21 @@ code <span class="nb">.</span>
 
 <h2 id="net-runtime">.NET Runtime</h2>
 
-<h3 id="net-runtime-60x-lts">.NET Runtime 6.0.x (LTS)</h3>
+<h3 id="net-runtime-60-lts">.NET Runtime 6.0 (LTS)</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotnet-install.sh --runtime dotnet --channel 6.0 --version latest
 </code></pre></div></div>
 
 <p>or download and install from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">Microsoft</a></p>
 
-<h3 id="net-runtime-70x">.NET Runtime 7.0.x</h3>
+<h3 id="net-runtime-70">.NET Runtime 7.0</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotnet-install.sh --runtime dotnet --channel 7.0 --version latest
 </code></pre></div></div>
 
 <p>or download and install from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">Microsoft</a></p>
 
-<h3 id="net-runtime-80x-lts">.NET Runtime 8.0.x (LTS)</h3>
+<h3 id="net-runtime-80-lts">.NET Runtime 8.0 (LTS)</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotnet-install.sh --runtime dotnet --channel 8.0 --version latest
 </code></pre></div></div>
