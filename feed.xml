@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-13T21:05:57-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with C++ and Visual Studio Code on Windows</title><link href="/getting-started-cpp-visual-studio-code-windows/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on Windows" /><published>2023-11-22T00:00:00-08:00</published><updated>2023-11-22T00:00:00-08:00</updated><id>/getting-started-cpp-visual-studio-code-windows</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-windows/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-windows">Setup C++ development environment on Windows</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-14T17:48:32-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Setup .NET development environment on Windows</title><link href="/setup-net-development-environment-windows/" rel="alternate" type="text/html" title="Setup .NET development environment on Windows" /><published>2023-11-23T00:00:00-08:00</published><updated>2023-11-23T00:00:00-08:00</updated><id>/setup-net-development-environment-windows</id><content type="html" xml:base="/setup-net-development-environment-windows/"><![CDATA[<h1 id="setup-for-windows">Setup for Windows</h1>
+
+<blockquote>
+  <p>Scripts are PowerShell.</p>
+</blockquote>
+
+<p>Download the <code class="language-plaintext highlighter-rouge">dotnet-install.ps1</code> script</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Invoke-WebRequest</span><span class="w"> </span><span class="s1">'https://dot.net/v1/dotnet-install.ps1'</span><span class="w"> </span><span class="nt">-OutFile</span><span class="w"> </span><span class="s1">'dotnet-install.ps1'</span><span class="p">;</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="net-runtime">.NET Runtime</h2>
+
+<h3 id="net-runtime-60-lts">.NET Runtime 6.0 (LTS)</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">/dotnet-install.ps1</span><span class="w"> </span><span class="nt">-InstallDir</span><span class="w"> </span><span class="s1">'~/.dotnet'</span><span class="w"> </span><span class="nt">-Channel</span><span class="w"> </span><span class="nx">6.0</span><span class="w"> </span><span class="nt">-Runtime</span><span class="w"> </span><span class="nx">dotnet</span><span class="w"> </span><span class="nt">-Version</span><span class="w"> </span><span class="nx">latest</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or download and install from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">Microsoft</a></p>
+
+<h3 id="net-runtime-70">.NET Runtime 7.0</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">/dotnet-install.ps1</span><span class="w"> </span><span class="nt">-InstallDir</span><span class="w"> </span><span class="s1">'~/.dotnet'</span><span class="w"> </span><span class="nt">-Channel</span><span class="w"> </span><span class="nx">7.0</span><span class="w"> </span><span class="nt">-Runtime</span><span class="w"> </span><span class="nx">dotnet</span><span class="w"> </span><span class="nt">-Version</span><span class="w"> </span><span class="nx">latest</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or download and install from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">Microsoft</a></p>
+
+<h3 id="net-runtime-80-lts">.NET Runtime 8.0 (LTS)</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">/dotnet-install.ps1</span><span class="w"> </span><span class="nt">-InstallDir</span><span class="w"> </span><span class="s1">'~/.dotnet'</span><span class="w"> </span><span class="nt">-Channel</span><span class="w"> </span><span class="nx">8.0</span><span class="w"> </span><span class="nt">-Runtime</span><span class="w"> </span><span class="nx">dotnet</span><span class="w"> </span><span class="nt">-Version</span><span class="w"> </span><span class="nx">latest</span><span class="w">
+</span></code></pre></div></div>
+
+<p>or download and install from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Microsoft</a></p>
+
+<h2 id="net-sdk">.NET SDK</h2>
+
+<h3 id="net-48">.NET 4.8</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdir</span><span class="w"> </span><span class="nx">~/Downloads</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">~/Downloads</span><span class="w">
+
+</span><span class="n">Start-BitsTransfer</span><span class="w"> </span><span class="se">`
+</span><span class="w">    </span><span class="nt">-Source</span><span class="w"> </span><span class="s1">'https://go.microsoft.com/fwlink/?linkid=2088517'</span><span class="w">  </span><span class="se">`
+</span><span class="w">    </span><span class="nt">-Destination</span><span class="w"> </span><span class="s2">".\ndp48-devpack-enu.exe"</span><span class="w">
+</span><span class="o">&amp;</span><span class="w"> </span><span class="o">.</span><span class="n">/ndp48-devpack-enu.exe</span><span class="w"> </span><span class="nx">/q</span><span class="w"> </span><span class="nx">/norestart</span><span class="w"> </span><span class="nx">/log</span><span class="w"> </span><span class="nx">ndp48-devpack-enu.log</span><span class="w">
+
+</span><span class="c"># For non-silent install</span><span class="w">
+</span><span class="c"># &amp; ./ndp48-devpack-enu.exe </span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="net-60">.NET 6.0</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">/dotnet-install.ps1</span><span class="w"> </span><span class="nt">-InstallDir</span><span class="w"> </span><span class="s1">'~/.dotnet'</span><span class="w"> </span><span class="nt">-Channel</span><span class="w"> </span><span class="nx">6.0</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="net-70">.NET 7.0</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">/dotnet-install.ps1</span><span class="w"> </span><span class="nt">-InstallDir</span><span class="w"> </span><span class="s1">'~/.dotnet'</span><span class="w"> </span><span class="nt">-Channel</span><span class="w"> </span><span class="nx">7.0</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="net-80">.NET 8.0</h3>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">/dotnet-install.ps1</span><span class="w"> </span><span class="nt">-InstallDir</span><span class="w"> </span><span class="s1">'~/.dotnet'</span><span class="w"> </span><span class="nt">-Channel</span><span class="w"> </span><span class="nx">8.0</span><span class="w">
+</span></code></pre></div></div>
+
+<p>## Test</p>
+
+<p>Test that you can run the <code class="language-plaintext highlighter-rouge">dotnet</code> CLI (command line interface)</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dotnet</span><span class="w"> </span><span class="nt">--version</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">console</span><span class="w"> </span><span class="nt">--help</span><span class="w">
+</span></code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="csharp" /><category term="dotnet" /><category term="windows" /><summary type="html"><![CDATA[Setup for Windows Scripts are PowerShell. Download the dotnet-install.ps1 script Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1';]]></summary></entry><entry><title type="html">Getting Started with C++ and Visual Studio Code on Windows</title><link href="/getting-started-cpp-visual-studio-code-windows/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on Windows" /><published>2023-11-22T00:00:00-08:00</published><updated>2023-11-22T00:00:00-08:00</updated><id>/getting-started-cpp-visual-studio-code-windows</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-windows/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-windows">Setup C++ development environment on Windows</a></p>
 
 <h2 id="visual-studio-code">Visual Studio Code</h2>
 
@@ -10,7 +81,7 @@
 
 <p>Create a directory called simple in <code class="language-plaintext highlighter-rouge">~/cpp/simple</code></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/cpp/simple
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/cpp/simple
 </code></pre></div></div>
 
 <p>Add a configuration script <code class="language-plaintext highlighter-rouge">configure.ps1</code>:</p>
@@ -785,57 +856,4 @@ build/
 
 <h2 id="test-the-debugging">Test the debugging</h2>
 
-<p>Set a breakpoint on the first line of <code class="language-plaintext highlighter-rouge">int main()</code> inside <code class="language-plaintext highlighter-rouge">src/main.cpp</code>. Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="vscode" /><category term="cpp" /><category term="macos" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup C++ development environment on macOS Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Cmd + Shift + p. Select Shell Command: Install 'code' command in PATH.]]></summary></entry><entry><title type="html">Setup C++ development environment on macOS</title><link href="/setup-cpp-development-environment-macos/" rel="alternate" type="text/html" title="Setup C++ development environment on macOS" /><published>2023-09-12T00:00:00-07:00</published><updated>2023-09-12T00:00:00-07:00</updated><id>/setup-cpp-development-environment-macos</id><content type="html" xml:base="/setup-cpp-development-environment-macos/"><![CDATA[<h2 id="homebrew">Homebrew</h2>
-
-<p>Install Homebrew:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
-</code></pre></div></div>
-
-<h2 id="development-tools">Development Tools</h2>
-
-<h3 id="xcode">Xcode</h3>
-
-<p>Install Command Line Tools (CLT) for Xcode:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
-</code></pre></div></div>
-
-<h3 id="cmake">CMake</h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>cmake
-</code></pre></div></div>
-
-<h3 id="ninja">ninja</h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>ninja
-</code></pre></div></div>
-
-<h2 id="misc">Misc</h2>
-
-<h3 id="finder">Finder</h3>
-
-<p>Show hidden files:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
-</code></pre></div></div>
-
-<p>Hold the ‘Option/alt’ key, then right click on the Finder icon in the dock and click Relaunch</p>
-
-<h2 id="troubleshooting">Troubleshooting</h2>
-
-<p>If you get:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select: error: <span class="nb">command </span>line tools are already installed, use <span class="s2">"Software Update"</span> to <span class="nb">install </span>updates
-</code></pre></div></div>
-
-<p>Try this:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softwareupdate <span class="nt">--all</span> <span class="nt">--install</span> <span class="nt">--force</span>
-</code></pre></div></div>
-
-<p>If that doesn’t show you any updates, run:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
- <span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
-</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="cpp" /><category term="macos" /><summary type="html"><![CDATA[Homebrew Install Homebrew: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"]]></summary></entry></feed>
+<p>Set a breakpoint on the first line of <code class="language-plaintext highlighter-rouge">int main()</code> inside <code class="language-plaintext highlighter-rouge">src/main.cpp</code>. Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="vscode" /><category term="cpp" /><category term="macos" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup C++ development environment on macOS Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Cmd + Shift + p. Select Shell Command: Install 'code' command in PATH.]]></summary></entry></feed>
