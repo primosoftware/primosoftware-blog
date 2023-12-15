@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<title>Getting Started with .NET and Visual Studio Code on Windows | Primo Software</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Primo Software">
+<meta name="generator" content="Jekyll v4.2.2">
+<link rel="canonical" href="/getting-started-net-visual-studio-code-windows/">
+
+
+<link rel="stylesheet" href="/assets/css/frame.css">
+
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Primo Software">
+
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X08HPWQQQT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X08HPWQQQT');
+</script>
+
+</head>
+
+
+
+
+<header>
+  <a href="https://primosoftware.com" class="title">Primo Software</a>
+  <nav><a aria-label="Home" href="https://primosoftware.com/" ><span aria-hidden="true">Home</span></a><a aria-label="Blog" href="/" ><span aria-hidden="true">Blog</span></a><a aria-label="Archive" href="/archive/" ><span aria-hidden="true">Archive</span></a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/getting-started-net-visual-studio-code-windows/">Getting Started with .NET and Visual Studio Code on Windows</a></h1><time datetime="2023-11-24T00:00:00-08:00">November 24, 2023</time>
+</header>
+
+  <p>Before going through these steps make sure you have done <a href="/setup-net-development-environment-windows">Setup .NET development environment on Windows</a></p>
+
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+
+<p>Download and install from <a href="https://code.visualstudio.com/download">Visual Studio Code</a> site.</p>
+
+<p>Open Visual Studio Code and press <code class="language-plaintext highlighter-rouge">Ctrl + Shift + P</code>. Select <code class="language-plaintext highlighter-rouge">Shell Command: Install 'code' command in PATH</code>.</p>
+
+<p>Close Visual Studio Code.</p>
+
+<h2 id="project-directory">Project Directory</h2>
+
+<p>Create a directory called <code class="language-plaintext highlighter-rouge">simple</code> in <code class="language-plaintext highlighter-rouge">~/net/simple</code></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdir</span><span class="w"> </span><span class="nx">~/net/simple</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="net-project-files">.NET Project Files</h2>
+
+<p>Create the project files:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">~/net/simple</span><span class="w">
+
+</span><span class="c"># Switch to use .NET SDK 6.0, 7.0 or 8.0. We do 8.0 here but give the commands for other versions </span><span class="w">
+</span><span class="c"># dotnet new globaljson --sdk-version 6.0.417 --roll-forward latestPatch</span><span class="w">
+</span><span class="c"># dotnet new globaljson --sdk-version 7.0.404 --roll-forward latestPatch</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">globaljson</span><span class="w"> </span><span class="nt">--sdk-version</span><span class="w"> </span><span class="nx">8.0.100</span><span class="w"> </span><span class="nt">--roll-forward</span><span class="w"> </span><span class="nx">latestPatch</span><span class="w">
+
+</span><span class="c"># create new console application and project</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">console</span><span class="w"> </span><span class="nt">--framework</span><span class="w"> </span><span class="nx">net6.0</span><span class="w">
+
+</span><span class="c"># create new solution and add the project to it</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">sln</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">sln</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">simple.csproj</span><span class="w">
+
+</span><span class="c"># add .gitignore</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">gitignore</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Open the directory in Visual Studio Code:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">~/net/simple</span><span class="w">
+</span><span class="n">code</span><span class="w"> </span><span class="o">.</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit">C# Dev Kit extension</a> for Visual Studio Code.</p>
+
+<h2 id="automate-the-build">Automate the build</h2>
+
+<p>Add the following Visual Studio Code specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
+
+<h3 id="vscodetasksjson"><code class="language-plaintext highlighter-rouge">.vscode/tasks.json</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dotnet"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"task"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dotnet: build"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Test the build by pressing <code class="language-plaintext highlighter-rouge">Ctrl + Shift + B</code>. Visual Studio Code should execute the <code class="language-plaintext highlighter-rouge">build.sh</code> script automatically.</p>
+
+<h2 id="setup-debugging">Setup Debugging</h2>
+
+<p>Add the following Visual Studio Code specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
+
+<h3 id="vscodelaunchjson"><code class="language-plaintext highlighter-rouge">.vscode/launch.json</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">".NET Core Launch (console)"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coreclr"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"preLaunchTask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dotnet: build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/bin/Debug/net6.0/simple.dll"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"internalConsole"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"stopAtEntry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="test-the-debugging">Test the debugging</h2>
+
+<p>Set a breakpoint at the <code class="language-plaintext highlighter-rouge">Console.WriteLine("Hello, World!");</code> line in <code class="language-plaintext highlighter-rouge">Programs.cs</code>:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// See https://aka.ms/new-console-template for more information</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>
+
+  
+</article>
+
+
+
+<footer>
+  <div>&copy; Primo Software</div>
+  <nav><a aria-label="Mail" href="mailto:hello@primosoftware.com" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a aria-label="Github" href="https://github.com/primosoftware" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a aria-label="Subscribe" href="/feed.xml" ><svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-14T17:49:57-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Setup .NET development environment on Windows</title><link href="/setup-net-development-environment-windows/" rel="alternate" type="text/html" title="Setup .NET development environment on Windows" /><published>2023-11-23T00:00:00-08:00</published><updated>2023-11-23T00:00:00-08:00</updated><id>/setup-net-development-environment-windows</id><content type="html" xml:base="/setup-net-development-environment-windows/"><![CDATA[<h1 id="setup-for-windows">Setup for Windows</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-12-14T17:56:41-08:00</updated><id>/feed.xml</id><title type="html">Primo Software</title><subtitle>&amp;copy; Primo Software</subtitle><author><name>Primo Software</name></author><entry><title type="html">Getting Started with .NET and Visual Studio Code on Windows</title><link href="/getting-started-net-visual-studio-code-windows/" rel="alternate" type="text/html" title="Getting Started with .NET and Visual Studio Code on Windows" /><published>2023-11-24T00:00:00-08:00</published><updated>2023-11-24T00:00:00-08:00</updated><id>/getting-started-net-visual-studio-code-windows</id><content type="html" xml:base="/getting-started-net-visual-studio-code-windows/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-net-development-environment-windows">Setup .NET development environment on Windows</a></p>
+
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+
+<p>Download and install from <a href="https://code.visualstudio.com/download">Visual Studio Code</a> site.</p>
+
+<p>Open Visual Studio Code and press <code class="language-plaintext highlighter-rouge">Ctrl + Shift + P</code>. Select <code class="language-plaintext highlighter-rouge">Shell Command: Install 'code' command in PATH</code>.</p>
+
+<p>Close Visual Studio Code.</p>
+
+<h2 id="project-directory">Project Directory</h2>
+
+<p>Create a directory called <code class="language-plaintext highlighter-rouge">simple</code> in <code class="language-plaintext highlighter-rouge">~/net/simple</code></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdir</span><span class="w"> </span><span class="nx">~/net/simple</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="net-project-files">.NET Project Files</h2>
+
+<p>Create the project files:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">~/net/simple</span><span class="w">
+
+</span><span class="c"># Switch to use .NET SDK 6.0, 7.0 or 8.0. We do 8.0 here but give the commands for other versions </span><span class="w">
+</span><span class="c"># dotnet new globaljson --sdk-version 6.0.417 --roll-forward latestPatch</span><span class="w">
+</span><span class="c"># dotnet new globaljson --sdk-version 7.0.404 --roll-forward latestPatch</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">globaljson</span><span class="w"> </span><span class="nt">--sdk-version</span><span class="w"> </span><span class="nx">8.0.100</span><span class="w"> </span><span class="nt">--roll-forward</span><span class="w"> </span><span class="nx">latestPatch</span><span class="w">
+
+</span><span class="c"># create new console application and project</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">console</span><span class="w"> </span><span class="nt">--framework</span><span class="w"> </span><span class="nx">net6.0</span><span class="w">
+
+</span><span class="c"># create new solution and add the project to it</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">sln</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">sln</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">simple.csproj</span><span class="w">
+
+</span><span class="c"># add .gitignore</span><span class="w">
+</span><span class="n">dotnet</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">gitignore</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Open the directory in Visual Studio Code:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">~/net/simple</span><span class="w">
+</span><span class="n">code</span><span class="w"> </span><span class="o">.</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit">C# Dev Kit extension</a> for Visual Studio Code.</p>
+
+<h2 id="automate-the-build">Automate the build</h2>
+
+<p>Add the following Visual Studio Code specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
+
+<h3 id="vscodetasksjson"><code class="language-plaintext highlighter-rouge">.vscode/tasks.json</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dotnet"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"task"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dotnet: build"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Test the build by pressing <code class="language-plaintext highlighter-rouge">Ctrl + Shift + B</code>. Visual Studio Code should execute the <code class="language-plaintext highlighter-rouge">build.sh</code> script automatically.</p>
+
+<h2 id="setup-debugging">Setup Debugging</h2>
+
+<p>Add the following Visual Studio Code specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
+
+<h3 id="vscodelaunchjson"><code class="language-plaintext highlighter-rouge">.vscode/launch.json</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">".NET Core Launch (console)"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coreclr"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"preLaunchTask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dotnet: build"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/bin/Debug/net6.0/simple.dll"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"internalConsole"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"stopAtEntry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="test-the-debugging">Test the debugging</h2>
+
+<p>Set a breakpoint at the <code class="language-plaintext highlighter-rouge">Console.WriteLine("Hello, World!");</code> line in <code class="language-plaintext highlighter-rouge">Programs.cs</code>:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// See https://aka.ms/new-console-template for more information</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="csharp" /><category term="vscode" /><category term="dotnet" /><category term="windows" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup .NET development environment on Windows Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Ctrl + Shift + P. Select Shell Command: Install 'code' command in PATH. Close Visual Studio Code.]]></summary></entry><entry><title type="html">Setup .NET development environment on Windows</title><link href="/setup-net-development-environment-windows/" rel="alternate" type="text/html" title="Setup .NET development environment on Windows" /><published>2023-11-23T00:00:00-08:00</published><updated>2023-11-23T00:00:00-08:00</updated><id>/setup-net-development-environment-windows</id><content type="html" xml:base="/setup-net-development-environment-windows/"><![CDATA[<h1 id="setup-for-windows">Setup for Windows</h1>
 
 <blockquote>
   <p>Scripts are PowerShell.</p>
@@ -735,125 +836,4 @@ code <span class="nb">.</span>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.dotnet/dotnet <span class="nt">--version</span>
 ~/.dotnet/dotnet new console <span class="nt">--help</span>
-</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="csharp" /><category term="dotnet" /><category term="macos" /><summary type="html"><![CDATA[Setup for macOS Download the dotnet-install.sh script cd curl -sSL https://dot.net/v1/dotnet-install.sh &gt; dotnet-install.sh chmod +x dotnet-install.sh]]></summary></entry><entry><title type="html">Getting Started with C++ and Visual Studio Code on macOS</title><link href="/getting-started-cpp-visual-studio-code-macos/" rel="alternate" type="text/html" title="Getting Started with C++ and Visual Studio Code on macOS" /><published>2023-10-07T00:00:00-07:00</published><updated>2023-10-07T00:00:00-07:00</updated><id>/getting-started-cpp-visual-studio-code-macos</id><content type="html" xml:base="/getting-started-cpp-visual-studio-code-macos/"><![CDATA[<p>Before going through these steps make sure you have done <a href="/setup-cpp-development-environment-macos">Setup C++ development environment on macOS</a></p>
-
-<h2 id="visual-studio-code">Visual Studio Code</h2>
-
-<p>Download and install from <a href="https://code.visualstudio.com/download">Visual Studio Code</a> site.</p>
-
-<p>Open Visual Studio Code and press <code class="language-plaintext highlighter-rouge">Cmd + Shift + p</code>. Select <code class="language-plaintext highlighter-rouge">Shell Command: Install 'code' command in PATH</code>.</p>
-
-<h2 id="c-project">C++ Project</h2>
-
-<p>Create a directory called simple in <code class="language-plaintext highlighter-rouge">~/cpp/simple</code></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/cpp/simple
-</code></pre></div></div>
-
-<p>Open the directory in Visual Studio Code:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/cpp/simple
-code <span class="nb">.</span>
-</code></pre></div></div>
-
-<p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++ extension</a>.</p>
-
-<h2 id="project-files">Project Files</h2>
-
-<p>Add the following files:</p>
-
-<h3 id="srcmaincpp"><code class="language-plaintext highlighter-rouge">src/main.cpp</code></h3>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello CMake!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="cmakeliststxt"><code class="language-plaintext highlighter-rouge">CMakeLists.txt</code></h3>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span><span class="p">(</span>VERSION 3.20<span class="p">)</span>
-
-<span class="nb">project</span><span class="p">(</span>simple<span class="p">)</span>
-
-<span class="nb">add_executable</span><span class="p">(</span>simple src/main.cpp<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="buildsh"><code class="language-plaintext highlighter-rouge">build.sh</code></h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
-
-<span class="nb">mkdir</span> <span class="nt">-p</span> ./build/debug
-<span class="nb">pushd</span> ./build/debug
-    cmake <span class="nt">-G</span> <span class="s1">'Ninja'</span> <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug  ../.. <span class="o">&amp;&amp;</span> <span class="se">\</span>
-    ninja
-    <span class="nv">ret</span><span class="o">=</span><span class="nv">$?</span>
-<span class="nb">popd</span>  
-</code></pre></div></div>
-
-<h3 id="gitignore"><code class="language-plaintext highlighter-rouge">.gitignore</code></h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.cache/
-build/
-</code></pre></div></div>
-
-<h2 id="test-the-build">Test the build</h2>
-
-<p>Open Terminal in Visual Studio Code and test the build from command line:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build.sh
-</code></pre></div></div>
-
-<h2 id="automate-the-build">Automate the build</h2>
-
-<p>Add the following Visual Studio Code specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
-
-<h3 id="vscodetasksjson"><code class="language-plaintext highlighter-rouge">.vscode/tasks.json</code></h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Build"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"osx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/build.sh"</span><span class="p">,</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Test the build by pressing <code class="language-plaintext highlighter-rouge">Cmd + B</code>. Visual Studio Code should execute the <code class="language-plaintext highlighter-rouge">build.sh</code> script automatically.</p>
-
-<h2 id="setup-debugging">Setup Debugging</h2>
-
-<p>Add the following Visual Studio Code specific files to the <code class="language-plaintext highlighter-rouge">.vscode</code> subdir:</p>
-
-<h3 id="vscodelaunchjson"><code class="language-plaintext highlighter-rouge">.vscode/launch.json</code></h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Launch (gdb)"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cppdbg"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"osx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/build/debug/simple"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"MIMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lldb"</span><span class="p">,</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">}</span><span class="w">    
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h2 id="test-the-debugging">Test the debugging</h2>
-
-<p>Set a breakpoint on the first line of <code class="language-plaintext highlighter-rouge">int main()</code> inside <code class="language-plaintext highlighter-rouge">src/main.cpp</code>. Press <code class="language-plaintext highlighter-rouge">F5</code> to launch the debugger. It should stop at the breakpoint.</p>]]></content><author><name>Primo Software</name></author><category term="vscode" /><category term="cpp" /><category term="macos" /><summary type="html"><![CDATA[Before going through these steps make sure you have done Setup C++ development environment on macOS Visual Studio Code Download and install from Visual Studio Code site. Open Visual Studio Code and press Cmd + Shift + p. Select Shell Command: Install 'code' command in PATH.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Primo Software</name></author><category term="csharp" /><category term="dotnet" /><category term="macos" /><summary type="html"><![CDATA[Setup for macOS Download the dotnet-install.sh script cd curl -sSL https://dot.net/v1/dotnet-install.sh &gt; dotnet-install.sh chmod +x dotnet-install.sh]]></summary></entry></feed>
